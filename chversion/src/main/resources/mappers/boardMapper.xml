@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+  
+  <mapper namespace="com.chversion.mappers.BoardMapper">
+  	<insert id="create">
+  		INSERT INTO TB1_BOARD(BNO, TITLE, CONTENT, WRITER)
+  		VALUES(SEQ_BOARD.NEXTVAL, #{title}, #{content}, #{writer})
+  	</insert>
+  	
+  	<select id="read" resultType="com.chversion.domain.BoardVo">
+  		SELECT BNO, TITLE, CONTENT, WRITER, REGDATE, VIEWCNT
+  		FROM TB1_BOARD
+  		WHERE BNO=#{bno}
+  	</select>
+  	
+  	<update id="update">
+  		UPDATE TB1_BOARD SET TITLE=#{title}, CONTENT=#{content}
+  		WHERE BNO=#{bno}
+  	</update>
+  	
+  	<delete id="delete">
+  		DELETE FROM TB1_BOARD WHERE BNO=#{bno} 
+  	</delete>
+  	
+  	<select id="listAll" resultType="com.chversion.domain.BoardVo">
+  		<![CDATA[
+  			SELECT BNO, TITLE, CONTENT, WRITER, REGDATE, VIEWCNT
+  			FROM TB1_BOARD
+  			WHERE BNO > 0
+  			ORDER BY BNO DESC, REGDATE DESC
+  		]]>
+  	</select>
+  </mapper>
