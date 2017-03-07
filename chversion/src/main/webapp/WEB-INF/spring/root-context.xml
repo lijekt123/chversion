@@ -36,5 +36,9 @@
 	
 	<bean id="BoardDao" class="com.chversion.persistence.BoardDaoImpl" />
 	
+<!-- 	 dto 자동 인식 처리 -->
 	<context:component-scan base-package="com.chversion.web" />
+
+<!-- 	service 자동인식 처리 -->
+	<context:component-scan base-package="com.chversion.service" />
 </beans>
