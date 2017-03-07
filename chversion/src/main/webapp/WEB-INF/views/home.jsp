@@ -7,7 +7,7 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<title>Home</title>
+<title>Homedd</title>
 </head>
 <body>
 	<%@include file="include/header.jsp"%>
